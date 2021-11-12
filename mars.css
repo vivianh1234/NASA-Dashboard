@@ -1,0 +1,10 @@
+.home-link{
+    height: 20px;
+    position: fixed;
+    top: 5px;
+    right: 5px;
+}
+
+#main-content{
+    padding-top: 40px;
+}
