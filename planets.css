@@ -1,0 +1,17 @@
+body { 
+    text-align:center;
+}
+h1 { 
+    color: green; 
+} 
+#GFG {
+    background-image: 
+url(https://media.nasa.org/wp-content/uploads/nasa-6-1.png), 
+url(https://media.nasa.org/wp-content/uploads/nasa-1.png);
+
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 400px 200px, 500px 400px;
+    padding:25px;
+    height:400px;
+}
