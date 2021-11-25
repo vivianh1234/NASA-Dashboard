@@ -40,19 +40,56 @@ class RoverImage extends React.Component{
 }
 
 
-function initializeContent(){
-    let testurl = 'http://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/01004/opgs/edr/fcam/FLB_486615455EDR_F0481570FHAZ00323M_.JPG';
-
-    let url = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-6-3&api_key=DEMO_KEY";
+async function initializeContent(){
     let photos = [];
 
-    fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-            photos = data.photos;
-            ReactDOM.render(React.createElement(RoverControl, {photos: photos}), document.querySelector("#rover-control"));
-        })
-        .catch((error) => console.log(error));
+    let url = '';
+    const urlBase = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?";
+    let dateParam = "earth_date=";
+    let keyParam = "api_key=yDwshnAeUYiWS209gU0i8Ly1C6fZz2560sv5M8OZ";
 
-    ReactDOM.render(React.createElement(RoverImage, {url: testurl}), document.querySelector("#rover-image"));
+    const date = new Date();
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1; //getMonth() returns 0-11, need to add 1
+    let day = date.getDate();
+
+    dateParam = buildDateParam(year, month, day);
+    url = buildUrl(urlBase, dateParam, keyParam);
+
+    photos = await fetchPhotos(url);
+    while (photos.length === 0){
+        console.log("NO PHOTOS TODAY, FINDING DIFFERENT DAY");
+        day -= 1;
+        dateParam = buildDateParam(year, month, day);
+        url = buildUrl(urlBase, dateParam, keyParam);
+        photos = await fetchPhotos(url);
+    }
+    ReactDOM.render(React.createElement(RoverControl, {photos: photos}), document.querySelector("#rover-control"));
+    ReactDOM.render(React.createElement(RoverImage, {url: photos[0].img_src}), document.querySelector("#rover-image"));
+}
+
+function buildDateParam(year, month, day){
+    let date = year + "-" + month + "-" + day;
+    let dateParam = "earth_date=";
+    dateParam = dateParam + date;
+    return dateParam;
+}
+
+function buildUrl(urlBase, dateParam, keyParam){
+    return urlBase + dateParam + "&" + keyParam;
+}
+
+async function fetchPhotos(url){
+    let photos = [];
+
+    try{
+        let response = await fetch(url);
+        response = await response.json();
+        photos = await response.photos;
+    } 
+    catch (error){
+        console.log(error);
+    }
+
+    return photos;
 }
