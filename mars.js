@@ -66,7 +66,7 @@ class RoverControl extends React.Component{
             { className: "btn btn-light", onClick: () => {
                 this.handleOnClick();
             }},
-            'Switch Rover Image'
+            'Switch Rover Camera'
         );
     }
 }
