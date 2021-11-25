@@ -4,21 +4,67 @@ class RoverControl extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            photoToDisplay: {}
+            cameras: {
+                'FHAZ': [], 
+                'RHAZ': [], 
+                'MAST': [], 
+                'CHEMCAM': [], 
+                'MAHLI': [], 
+                'MARDI': [], 
+                'NAVCAM': []
+            },
+            availableCameras: [],
+            currentCameraIndex: 1
         };
     }
 
     componentDidMount(){
-        this.setState({photoToDisplay: this.props.photos[0]});
+        this.props.photos.forEach((photo) => {
+            if (photo.rover.name !== "Curiosity"){
+                return;
+            }
+
+            let camera_name = photo.camera.name;
+            let camera_copy = Object.assign({}, this.state.cameras);
+            camera_copy[camera_name].push(photo);
+            this.setState({cameras: camera_copy});
+        });
+
+        for (let [key, value] of Object.entries(this.state.cameras)){
+            if (value.length === 0){
+                continue;
+            }
+            
+            if (this.state.availableCameras.includes(key) == false){
+                this.state.availableCameras.push(key);
+            }
+        }
+
         console.log(this.props.photos);
+        console.log(this.state.cameras);
+        console.log(this.state.availableCameras);
+    }
+
+    handleOnClick(){
+        let currentCameraName = this.state.availableCameras[this.state.currentCameraIndex];
+        let photo = this.state.cameras[currentCameraName][0];
+        let image_url = photo.img_src; 
+
+        if (this.state.currentCameraIndex >= this.state.availableCameras.length-1){
+            this.setState({currentCameraIndex: 0});
+        }
+        else{
+            this.setState({currentCameraIndex: this.state.currentCameraIndex + 1});
+        }
+        ReactDOM.render(React.createElement(RoverImage, {url: image_url}), document.querySelector("#rover-image"));
+        ReactDOM.render(React.createElement(RoverCameraName, {name: photo.camera.full_name}), document.querySelector("#camera-name"));
     }
 
     render(){
         return React.createElement(
             'button',
             { className: "btn btn-light", onClick: () => {
-                ReactDOM.render(React.createElement(RoverImage, {url: this.state.photoToDisplay.img_src}), document.querySelector("#rover-image"));
-                console.log('clicked');
+                this.handleOnClick();
             }},
             'Switch Rover Image'
         );
@@ -35,6 +81,20 @@ class RoverImage extends React.Component{
             'img',
             {src: `${this.props.url}`, alt: 'Mars Rover Image', className: 'img-fluid'},
             null
+        );
+    }
+}
+
+class RoverCameraName extends React.Component{
+    constructor(props){
+        super(props);
+    }
+
+    render(){
+        return React.createElement(
+            'p',
+            {},
+            this.props.name
         );
     }
 }
@@ -66,6 +126,7 @@ async function initializeContent(){
     }
     ReactDOM.render(React.createElement(RoverControl, {photos: photos}), document.querySelector("#rover-control"));
     ReactDOM.render(React.createElement(RoverImage, {url: photos[0].img_src}), document.querySelector("#rover-image"));
+    ReactDOM.render(React.createElement(RoverCameraName, {name: photos[0].camera.full_name}), document.querySelector("#camera-name"));
 }
 
 function buildDateParam(year, month, day){

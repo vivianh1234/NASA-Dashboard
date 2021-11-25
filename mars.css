@@ -29,3 +29,15 @@ body{
 #rover-control{
     padding: 0px;
 }
+
+#camera-name{
+    color: white;
+    z-index: 1;
+    position: absolute;
+    bottom: 0px;
+    right: 50px;
+}
+
+#rover-image{
+    position: relative;
+}
