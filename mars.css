@@ -1,10 +1,31 @@
-.home-link{
+body{
+    background-image: url('http://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/01004/opgs/edr/fcam/FLB_486615455EDR_F0481570FHAZ00323M_.JPG');
+    background-size: cover;
+    min-height: 100vh;
+    max-height: 100vh;
+}
+
+#home-container{
     height: 20px;
+    width: fit-content;
     position: fixed;
-    top: 5px;
+    top: 10px;
     right: 5px;
 }
 
 #main-content{
-    padding-top: 40px;
+    padding-top: 60px;
+}
+
+#main-row{
+    height: 100%;
+}
+
+#text-col{
+    background-color: rgba(226, 226, 226, 0.829);
+    padding: 25px 20px;
+}
+
+#rover-control{
+    padding: 0px;
 }
