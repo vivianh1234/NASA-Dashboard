@@ -1,23 +1,16 @@
 "use strict";
+
 class RoverControl extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            url: "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-6-3&api_key=DEMO_KEY",
-            photos: [],
             photoToDisplay: {}
         };
     }
 
     componentDidMount(){
-        fetch(this.state.url)
-            .then((response) => response.json())
-            .then((data) => {
-                this.setState({photos: data.photos});
-                console.log(this.state.photos);
-                this.setState({photoToDisplay: this.state.photos[0]});
-            })
-            .catch((error) => console.log(error));
+        this.setState({photoToDisplay: this.props.photos[0]});
+        console.log(this.props.photos);
     }
 
     render(){
@@ -25,6 +18,7 @@ class RoverControl extends React.Component{
             'button',
             { className: "btn btn-light", onClick: () => {
                 ReactDOM.render(React.createElement(RoverImage, {url: this.state.photoToDisplay.img_src}), document.querySelector("#rover-image"));
+                console.log('clicked');
             }},
             'Switch Rover Image'
         );
@@ -45,4 +39,20 @@ class RoverImage extends React.Component{
     }
 }
 
-ReactDOM.render(React.createElement(RoverControl), document.querySelector("#rover-control"));
+
+function initializeContent(){
+    let testurl = 'http://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/01004/opgs/edr/fcam/FLB_486615455EDR_F0481570FHAZ00323M_.JPG';
+
+    let url = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-6-3&api_key=DEMO_KEY";
+    let photos = [];
+
+    fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+            photos = data.photos;
+            ReactDOM.render(React.createElement(RoverControl, {photos: photos}), document.querySelector("#rover-control"));
+        })
+        .catch((error) => console.log(error));
+
+    ReactDOM.render(React.createElement(RoverImage, {url: testurl}), document.querySelector("#rover-image"));
+}
