@@ -245,7 +245,7 @@ body {
     transform: translate3d(0, 0, 0) rotateY(-45deg) !important;
   }
 
-  /* Add a black background color to the top navigation */
+  /* Add a image to the top navigation */
 .topnav {
   background-color: transparent;
     overflow: hidden;
