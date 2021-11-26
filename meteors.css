@@ -282,7 +282,7 @@ h2 span {
     padding: 20px;
     border-radius: 4px;
     background-color: white;
-    background-image: url('/img/home.jpg');
+    background-image: url('/img/meteorbackground.jpg');
     box-sizing: border-box;
   }
   
@@ -294,16 +294,16 @@ h2 span {
   .article-title {
     display: block;
     margin-bottom: 10px;
-    font-size: 18px;
-    line-height: 20px;
-    font-family: Helvetica, sans-serif;
+    font-size: 25px;
+    line-height: 25px;
+    color: white;
   }
   
   .article-text {
     display: block;
     font-size: 14px;
     line-height: 18px;
-    font-family: Helvetica, sans-serif;
+    color: white;
   }
   
   .article-sidebar {
@@ -311,9 +311,10 @@ h2 span {
     width: 200px;
     padding: 15px 25px 14px 20px;
     border-radius: 4px;
-    background-color: #F9B69C;
+
     box-sizing: border-box;
   }
+
   
   .article-sidebar-title {
     display: block;
@@ -332,9 +333,9 @@ h2 span {
     display: block;
     margin-bottom: 11px;
     line-height: 20px;
-    font-family: Helvetica, sans-serif;
+
     color: #44120C;
-    text-decoration: none;
+    text-decoration: solid; 
   }
   .article-sidebar-menu-text:hover {
     color: #000;
