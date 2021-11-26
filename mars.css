@@ -38,8 +38,13 @@ body{
     right: 50px;
 }
 
-#rover-image{
+#rover-image-container{
     position: relative;
+}
+
+#rover-image{
+    object-fit: cover;
+    width: 100%;
 }
 
 iframe{

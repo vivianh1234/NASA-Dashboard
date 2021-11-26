@@ -56,7 +56,7 @@ class RoverControl extends React.Component{
         else{
             this.setState({currentCameraIndex: this.state.currentCameraIndex + 1});
         }
-        ReactDOM.render(React.createElement(RoverImage, {url: image_url}), document.querySelector("#rover-image"));
+        ReactDOM.render(React.createElement(RoverImage, {url: image_url}), document.querySelector("#rover-image-container"));
         ReactDOM.render(React.createElement(RoverCameraName, {name: photo.camera.full_name}), document.querySelector("#camera-name"));
     }
 
@@ -79,7 +79,7 @@ class RoverImage extends React.Component{
     render(){
         return React.createElement(
             'img',
-            {src: `${this.props.url}`, alt: 'Mars Rover Image', className: 'img-fluid'},
+            {src: `${this.props.url}`, alt: 'Mars Rover Image', className: 'img-fluid', id: 'rover-image'},
             null
         );
     }
@@ -125,7 +125,7 @@ async function initializeContent(){
         photos = await fetchPhotos(url);
     }
     ReactDOM.render(React.createElement(RoverControl, {photos: photos}), document.querySelector("#rover-control"));
-    ReactDOM.render(React.createElement(RoverImage, {url: photos[0].img_src}), document.querySelector("#rover-image"));
+    ReactDOM.render(React.createElement(RoverImage, {url: photos[0].img_src}), document.querySelector("#rover-image-container"));
     ReactDOM.render(React.createElement(RoverCameraName, {name: photos[0].camera.full_name}), document.querySelector("#camera-name"));
 }
 
