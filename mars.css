@@ -41,3 +41,20 @@ body{
 #rover-image{
     position: relative;
 }
+
+iframe{
+    max-width: 100%;
+}
+
+#weather-btn{
+    float: right;
+}
+
+#weather-icon{
+    max-height: 30px;
+}
+
+h1{
+    width: fit-content;
+    display: inline;
+}
