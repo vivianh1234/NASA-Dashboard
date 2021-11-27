@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900');
 body {
-    font-family: Arial, sans-serif;
+  font-family: "Raleway",sans-serif;
     background-color: #2d2d2d;
     background-image: url('/img/home.jpg');
     background-position: center;
@@ -256,11 +257,12 @@ body {
   .topnav a {
     float: left;
     display: block;
-    color: rgb(48, 41, 42);
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 20px;
+    text-shadow: black;
   }
   
   /* Change the color of links on hover */
@@ -271,7 +273,7 @@ body {
   
   /* Add an active class to highlight the current page */
   .topnav a.active {
-    background-color: #04AA6D;
+    background-color: rgb(179, 220, 233);
     color: white;
   }
   
