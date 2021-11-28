@@ -1,36 +1,113 @@
-h1 { 
-    color: #111; 
-    font-family: 'Helvetica Neue', sans-serif; 
-    font-size: 60px; 
-    font-weight: bold; 
-    letter-spacing: -1px; 
-    line-height: 1; 
-    text-align: center; }
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900');
+html, body{
+	width: 100%; height: 100%;
+	background-color: #DDFFF7;
+	z-index: 1;
+	position: relative;
+	overflow: hidden;
+	
+}
 
+body {
+  font-family: "Raleway",sans-serif;
+  display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items:center;
+	color:#fff;
+  }
 
-h2 { 
-    color: #111; 
-    font-family: 'Open Sans', 
-    sans-serif; font-size: 30px; 
-    font-weight: 300; 
-    line-height: 32px; 
-    margin: 0 0 72px; 
-    text-align: center; }
+  .box{
+    width: 800px; height: 600px;
+    background-color: #DDFFF7;
+    position: relative;
+    box-shadow: 10px 10px 42px 0 rgba(0,0,0,0.75);
+  }
+  .box:after, .box:before{
+    mix-blend-mode:multiply;
+    filter:none;
+    z-index: -1;
+    content:'';
+    width:calc(100% + (50px * 2));
+    height:calc(100% + (50px * 2));
+    position: absolute;
+    display: block;
+    animation: border 10s ease-in-out infinite;
+    transform:translateX(-50px) translateY(-50px);
+  }
+  @keyframes border {
+    0%, 100% {
+      -webkit-clip-path: polygon(0 0, calc(100% - (33.3333333333px)) calc(0% + (33.3333333333px)), 100% 100%, calc(0% + (33.3333333333px)) calc(100% - (33.3333333333px)));
+              clip-path: polygon(0 0, calc(100% - (33.3333333333px)) calc(0% + (33.3333333333px)), 100% 100%, calc(0% + (33.3333333333px)) calc(100% - (33.3333333333px)));
+    }
+    50% {
+      -webkit-clip-path: polygon(calc(0% + (33.3333333333px)) calc(0% + (33.3333333333px)), 100% 0, calc(100% - (33.3333333333px)) calc(100% - (33.3333333333px)), 0 100%);
+              clip-path: polygon(calc(0% + (33.3333333333px)) calc(0% + (33.3333333333px)), 100% 0, calc(100% - (33.3333333333px)) calc(100% - (33.3333333333px)), 0 100%);
+    }
+  }
+  
+  .box:after{
+    animation-delay: -5s;
+    background-color: #93e1d8;
+    clip-path: polygon(0 0, calc(100% - (33.3333333333px)) calc(0% + (33.3333333333px)), 100% 100%, calc(0% + (33.3333333333px)) calc(100% - (33.3333333333px)));
+  }
+  .box:before {
+    background-color: #AA4465;
+      clip-path: polygon(calc(0% + (33.3333333333px)) calc(0% + (33.3333333333px)), 100% 0, calc(100% - (33.3333333333px)) calc(100% - (33.3333333333px)), 0 100%);
+  }
+  
+  .box:hover:after{
+    animation-delay: -0.1s;
+  }
+  .box:hover:before, .box:hover:after {
+  
+            animation-duration: 0.2s;
+  }
 
-
+   
 p { 
-    color: #685206; 
-    font-family: 'Helvetica Neue', sans-serif; 
-    font-size: 14px; 
-    line-height: 24px; 
-    margin: 0 0 24px; 
-    text-align: justify; 
-    text-justify: inter-word; }
+    color: black;     
+    font-size: 30px; 
+}
 
-pic
-{
-    max-height: 150px;
-max-width: 200px;
-width: 120px;
-height: 120px;
+#pic
+{    
+width: 100%;
+height: 100%;
+}
+
+.button_slide {
+  color: #FFF;
+  border: 2px solid rgb(216, 2, 134);
+  border-radius: 0px;
+  padding: 18px 36px;
+  display: inline-block;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 #D80286;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
+}
+
+.slide_down:hover {
+  box-shadow: inset 0 100px 0 0 #D80286;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
 }
