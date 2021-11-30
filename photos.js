@@ -25,10 +25,20 @@ const planetsUrls = [
   'https://images-assets.nasa.gov/image/PIA14883/PIA14883~thumb.jpg'
 ];
 
+const blackHolesUrls = [
+  'https://images-assets.nasa.gov/image/PIA23864/PIA23864~thumb.jpg',
+  'https://images-assets.nasa.gov/image/PIA19348/PIA19348~thumb.jpg',
+  'https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e002148/GSFC_20171208_Archive_e002148~thumb.jpg',
+  'https://images-assets.nasa.gov/image/PIA01884/PIA01884~thumb.jpg',
+  'https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e000608/GSFC_20171208_Archive_e000608~thumb.jpg',
+  'https://images-assets.nasa.gov/image/PIA17561/PIA17561~thumb.jpg'
+];
+
 const urls = {
   Liftoff: liftoffUrls,
   Galaxies: galaxiesUrls,
-  Planets: planetsUrls
+  Planets: planetsUrls,
+  BlackHoles: blackHolesUrls
 };
 
 function loadPhotos() {
