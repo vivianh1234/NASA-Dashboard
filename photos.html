@@ -2,26 +2,32 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photos</title>
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photos</title>
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="photos.css" />
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <form class="form-inline" onsubmit="performSearch()">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="photo-search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </nav>
-    <div class="container">
-        <img src="#" alt="#" class="img-fluid" id="EPIC-image">
-    </div>
+  <div class="container" id="select-container">
+    <select class="form-select form-select-lg" aria-label="Default select example" id="photo-select"
+      onchange="loadPhotos()">
+      <option selected>Select Photo Category</option>
+      <option value="Liftoff">Liftoff</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+  </div>
 
-    <script src="photos.js"></script>
+  <div class="container" id="photo-container">
+  </div>
+
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="photos.js"></script>
 </body>
 
 </html>

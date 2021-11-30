@@ -1,0 +1,18 @@
+body{
+    background-color: black;
+}
+
+#select-container{
+    width: fit-content;
+    padding: 10px;
+}
+
+#photo-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.photo{
+    width: fit-content;
+    padding: 20px;
+}
