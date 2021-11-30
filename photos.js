@@ -34,11 +34,21 @@ const blackHolesUrls = [
   'https://images-assets.nasa.gov/image/PIA17561/PIA17561~thumb.jpg'
 ];
 
+const starsUrls = [
+  'https://images-assets.nasa.gov/image/smoke-ring-for-a-halo_22611665165_o/smoke-ring-for-a-halo_22611665165_o~thumb.jpg',
+  'https://images-assets.nasa.gov/image/PIA09220/PIA09220~thumb.jpg',
+  'https://images-assets.nasa.gov/image/PIA12376/PIA12376~thumb.jpg',
+  'https://images-assets.nasa.gov/image/hubble-sees-a-dying-stars-final-moments_20149292766_o/hubble-sees-a-dying-stars-final-moments_20149292766_o~thumb.jpg',
+  'https://images-assets.nasa.gov/image/PIA13100/PIA13100~thumb.jpg',
+  'https://images-assets.nasa.gov/image/PIA13959/PIA13959~thumb.jpg'
+];
+
 const urls = {
   Liftoff: liftoffUrls,
   Galaxies: galaxiesUrls,
   Planets: planetsUrls,
-  BlackHoles: blackHolesUrls
+  BlackHoles: blackHolesUrls,
+  Stars: starsUrls
 };
 
 function loadPhotos() {
