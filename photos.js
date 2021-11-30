@@ -7,21 +7,28 @@ const liftoffUrls = [
   "https://images-assets.nasa.gov/image/KSC-08pd3696/KSC-08pd3696~thumb.jpg",
 ];
 
+const galaxiesUrls = [
+  'https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e000848/GSFC_20171208_Archive_e000848~thumb.jpg',
+  'https://images-assets.nasa.gov/image/PIA10115/PIA10115~thumb.jpg',
+  'https://images-assets.nasa.gov/image/PIA13117/PIA13117~thumb.jpg',
+  'https://images-assets.nasa.gov/image/PIA07907/PIA07907~thumb.jpg',
+  'https://images-assets.nasa.gov/image/PIA04634/PIA04634~thumb.jpg',
+  'https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e000677/GSFC_20171208_Archive_e000677~thumb.jpg'
+];
+
 const urls = {
   Liftoff: liftoffUrls,
+  Galaxies: galaxiesUrls
 };
 
 function loadPhotos() {
-  console.log("loading photos");
   let photoCategory = document.getElementById("photo-select").value;
-  console.log(photoCategory);
   let urlList = urls[photoCategory];
 
   let photoContainer = document.getElementById("photo-container");
   let count = 0;
 
   urlList.forEach((url) => {
-    console.log("appending photo");
     let newPhoto = document.createElement("div");
     newPhoto.id = photoCategory + "-image-" + count.toString();
     newPhoto.className = "container photo";
