@@ -5,7 +5,7 @@ html {
   background: #FAD6A6;
   font-family: Arial, sans-serif;
   background-color: #2d2d2d;
-  background-image: url('/img/home.jpg');
+  background-image: url('img/home.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -282,7 +282,7 @@ h2 span {
     padding: 20px;
     border-radius: 4px;
     background-color: white;
-    background-image: url('/img/meteorbackground.jpg');
+    background-image: url('img/meteorbackground.jpg');
     box-sizing: border-box;
   }
   
