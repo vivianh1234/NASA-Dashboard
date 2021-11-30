@@ -16,9 +16,19 @@ const galaxiesUrls = [
   'https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e000677/GSFC_20171208_Archive_e000677~thumb.jpg'
 ];
 
+const planetsUrls = [
+  'https://images-assets.nasa.gov/image/PIA19831/PIA19831~thumb.jpg',
+  'https://images-assets.nasa.gov/image/PIA18332/PIA18332~thumb.jpg',
+  'https://images-assets.nasa.gov/image/PIA20056/PIA20056~thumb.jpg',
+  'https://images-assets.nasa.gov/image/PIA07096/PIA07096~thumb.jpg',
+  'https://images-assets.nasa.gov/image/PIA10108/PIA10108~thumb.jpg',
+  'https://images-assets.nasa.gov/image/PIA14883/PIA14883~thumb.jpg'
+];
+
 const urls = {
   Liftoff: liftoffUrls,
-  Galaxies: galaxiesUrls
+  Galaxies: galaxiesUrls,
+  Planets: planetsUrls
 };
 
 function loadPhotos() {
