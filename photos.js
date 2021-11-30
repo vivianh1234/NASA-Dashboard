@@ -52,6 +52,8 @@ const urls = {
 };
 
 function loadPhotos() {
+  removePhotos();
+
   let photoCategory = document.getElementById("photo-select").value;
   let urlList = urls[photoCategory];
 
@@ -74,6 +76,13 @@ function loadPhotos() {
 
     ++count;
   });
+}
+
+function removePhotos(){
+  let photoContainer = document.getElementById("photo-container");
+  while (photoContainer.firstChild){
+    photoContainer.removeChild(photoContainer.firstChild);
+  }
 }
 
 class Photo extends React.Component {
