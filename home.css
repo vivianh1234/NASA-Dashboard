@@ -2,7 +2,7 @@
 body {
   font-family: "Raleway",sans-serif;
     background-color: #2d2d2d;
-    background-image: url('img/home.jpg');
+    background: url('img/home.jpg') no-repeat center center fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
