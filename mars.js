@@ -123,6 +123,7 @@ async function initializeContent(){
             day = 30;
             if (month == 1){
                 month = 12;
+                year -= 1;
             }
             else{
                 month -= 1;
