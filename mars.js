@@ -118,8 +118,19 @@ async function initializeContent(){
 
     photos = await fetchPhotos(url);
     while (photos.length === 0){
-        console.log("NO PHOTOS TODAY, FINDING DIFFERENT DAY");
-        day -= 1;
+        // get the previous day
+        if (day === 1){
+            day = 30;
+            if (month == 1){
+                month = 12;
+            }
+            else{
+                month -= 1;
+            }
+        }
+        else{
+            day -= 1;
+        }
         dateParam = buildDateParam(year, month, day);
         url = buildUrl(urlBase, dateParam, keyParam);
         photos = await fetchPhotos(url);
